@@ -1,0 +1,61 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "level-02.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "Adventure.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "level-01.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 1.0595,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 297.3100519112789,
+                "y": 215.19584709768753
+            }
+        },
+        "level-02.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 1.0316406249999999,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 315.032184778493,
+                "y": 186.1113214691405
+            }
+        }
+    },
+    "last.imagePath": "/Users/kendij/adventures/assets/images/Terrain",
+    "last.objectTemplatePath": "/Users/kendij/adventures/assets/tiles",
+    "map.height": 23,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 40,
+    "openFiles": [
+        "Adventure.tsx",
+        "level-01.tmx",
+        "level-02.tmx"
+    ],
+    "project": "untitled.tiled-project",
+    "recentFiles": [
+        "Adventure.tsx",
+        "level-01.tmx",
+        "level-02.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}
