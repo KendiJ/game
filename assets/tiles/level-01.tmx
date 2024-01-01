@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="9">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="15">
  <tileset firstgid="1" source="Adventure.tsx"/>
  <layer id="1" name="Field Play" width="40" height="23">
   <data encoding="csv">
@@ -29,6 +29,7 @@
 </data>
  </layer>
  <objectgroup id="2" name="Spawnpoints">
-  <object id="8" name="Player" type="Player" x="352.643" y="242.674" width="28.626" height="28.626"/>
+  <object id="8" name="Player" type="Player" x="240.326" y="271.933" width="28.626" height="28.626"/>
+  <object id="13" x="519.113" y="141.576" height="0.943841"/>
  </objectgroup>
 </map>

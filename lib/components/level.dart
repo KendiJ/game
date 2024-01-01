@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:adventures/actors/player.dart';
+import 'package:adventures/components/player.dart';
 import 'package:flame/components.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 
