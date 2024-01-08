@@ -21,6 +21,20 @@ class Level extends World {
     );
     add(level);
 
+    _scrollingBackground();
+    _spowningObjects();
+    _addCollisions();
+
+    
+
+    
+
+    return super.onLoad();
+  }
+
+  void _scrollingBackground() {}
+
+  void _spowningObjects() {
     final spawnPointsLayer = level.tileMap.getLayer<ObjectGroup>('Spawnpoints');
     if (spawnPointsLayer != null) {
       for (final spawnPoint in spawnPointsLayer.objects) {
@@ -33,7 +47,9 @@ class Level extends World {
         }
       }
     }
-
+  }
+  
+  void _addCollisions() {
     final collisionsLayer = level.tileMap.getLayer<ObjectGroup>('Collisions');
     if (collisionsLayer != null) {
       for (final collision in collisionsLayer.objects) {
@@ -59,7 +75,5 @@ class Level extends World {
     }
     player.collisionBlocks = collisionBlocks;
     // add(Player(character: 'Virtual Guy'));
-
-    return super.onLoad();
   }
 }
