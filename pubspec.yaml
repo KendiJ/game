@@ -29,6 +29,7 @@ flutter:
   assets:
     - assets/tiles/Adventure.tsx
     - assets/tiles/level-01.tmx
+    - assets/images/Background/
     - assets/images/Terrain/
     - assets/images/Main Characters/Mask Dude/
     - assets/images/Main Characters/Ninja Frog/
