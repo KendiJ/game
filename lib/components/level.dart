@@ -1,11 +1,13 @@
 import 'dart:async';
 
+import 'package:adventures/adventure.dart';
+import 'package:adventures/components/background_tile.dart';
 import 'package:adventures/components/collision_block.dart';
 import 'package:adventures/components/player.dart';
 import 'package:flame/components.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 
-class Level extends World {
+class Level extends World with HasGameRef<Adeventure> {
   final String levelName;
   final Player player;
   Level({required this.levelName, required this.player});
@@ -15,7 +17,7 @@ class Level extends World {
   @override
   FutureOr<void> onLoad() async {
     level = await TiledComponent.load(
-      // '$levelName.tmx'
+      // '$levelName.tmx',
       'level-01.tmx',
       Vector2.all(16),
     );
@@ -24,15 +26,33 @@ class Level extends World {
     _scrollingBackground();
     _spowningObjects();
     _addCollisions();
-
-    
-
-    
-
     return super.onLoad();
   }
 
-  void _scrollingBackground() {}
+  void _scrollingBackground() {
+    final backgroundLayer = level.tileMap.getLayer('Background');
+
+    const tileSize = 64;
+
+    final numTileY = (game.size.y / tileSize).floor();
+    final numTileX = (game.size.x / tileSize).floor();
+
+    if (backgroundLayer != null) {
+      final backgroundColor =
+          backgroundLayer.properties.getValue('BackgroundColor');
+
+      for (double y = 0; y < game.size.y / numTileY; y++) {
+        for (double x = 0; x < numTileX; x++) {
+          final backgroundTile = BackgroundTile(
+            color: backgroundColor ?? 'Gray',
+            position: Vector2(x * tileSize, y * tileSize - tileSize),
+          );
+
+          add(backgroundTile);
+        }
+      }
+    }
+  }
 
   void _spowningObjects() {
     final spawnPointsLayer = level.tileMap.getLayer<ObjectGroup>('Spawnpoints');
@@ -48,7 +68,7 @@ class Level extends World {
       }
     }
   }
-  
+
   void _addCollisions() {
     final collisionsLayer = level.tileMap.getLayer<ObjectGroup>('Collisions');
     if (collisionsLayer != null) {
