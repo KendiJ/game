@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:adventures/adventure.dart';
 import 'package:adventures/components/collision_block.dart';
-import 'package:adventures/components/player_hitbox.dart';
+import 'package:adventures/components/custom_hitbox.dart';
+import 'package:adventures/components/fruit.dart';
 import 'package:adventures/components/utils.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
@@ -12,7 +13,7 @@ import 'package:flutter/src/services/raw_keyboard.dart';
 enum PlayerState { idle, running, jumping, falling }
 
 class Player extends SpriteAnimationGroupComponent
-    with HasGameRef<Adeventure>, KeyboardHandler {
+    with HasGameRef<Adeventure>, KeyboardHandler, CollisionCallbacks {
   String character;
   Player({position, this.character = "Virtual Guy"})
       : super(position: position);
@@ -31,7 +32,7 @@ class Player extends SpriteAnimationGroupComponent
   bool isOnGround = false;
   bool hasJumped = false;
   List<CollisionBlock> collisionBlocks = [];
-  PlayerHitBox hitbox = PlayerHitBox(
+  CustomHitBox hitbox = CustomHitBox(
     offsetX: 10,
     offsetY: 4,
     width: 14,
@@ -76,6 +77,16 @@ class Player extends SpriteAnimationGroupComponent
     hasJumped = keysPressed.contains(LogicalKeyboardKey.space);
 
     return super.onKeyEvent(event, keysPressed);
+  }
+
+  // since its the player moving and colling with the fruit, we add it here
+  // checking to see if what we are colliding with is Fruit
+  @override
+  void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
+    if (other is Fruit) {
+      other.collidedWithPlayer();
+    }
+    super.onCollision(intersectionPoints, other);
   }
 
   void _loadAllAnimations() {

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:adventures/adventure.dart';
 import 'package:adventures/components/background_tile.dart';
 import 'package:adventures/components/collision_block.dart';
+import 'package:adventures/components/fruit.dart';
 import 'package:adventures/components/player.dart';
 import 'package:flame/components.dart';
 import 'package:flame_tiled/flame_tiled.dart';
@@ -63,6 +64,15 @@ class Level extends World with HasGameRef<Adeventure> {
             add(player);
             player.position = Vector2(spawnPoint.x, spawnPoint.y);
             break;
+
+          case 'Fruit':
+            final fruit = Fruit(
+              // the fruit name on tiled
+              fruit: spawnPoint.name,
+              position: Vector2(spawnPoint.x, spawnPoint.y),
+              size: Vector2(spawnPoint.width, spawnPoint.height),
+            );
+            add(fruit);
           default:
         }
       }

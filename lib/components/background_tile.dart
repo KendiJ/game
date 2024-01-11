@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:adventures/adventure.dart';
 import 'package:flame/components.dart';
-import 'package:flutter/widgets.dart';
 
 class BackgroundTile extends SpriteComponent with HasGameRef<Adeventure> {
   final String color;

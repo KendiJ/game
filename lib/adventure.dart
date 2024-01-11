@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:adventures/components/player.dart';
 import 'package:adventures/components/level.dart';
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
@@ -9,7 +10,7 @@ import 'package:flame/input.dart';
 import 'package:flutter/material.dart';
 
 class Adeventure extends FlameGame
-    with HasKeyboardHandlerComponents, DragCallbacks {
+    with HasKeyboardHandlerComponents, DragCallbacks, HasCollisionDetection {
   @override
   Color backgroundColor() => const Color(0xFF211F30);
   late final CameraComponent cam;
